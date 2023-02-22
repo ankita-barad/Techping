@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Home</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      #user_image {
+        width: 40px;
+        height: 40px;
+        margin-right: 46px;
+      }
+      #cart_image {
+        width: 40px;
+        height: 40px;
+      }
+      #container {
+        margin: auto;
+      }
+
+      #wrap_container {
+        width: 65%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #search {
+        height: 40px;
+        width: 520px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: #f0f1f4;
+        border: none;
+      }
+      .search-btn {
+        background-color: #0069ff;
+        height: 42px;
+        width: 54px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border: none;
+      }
+      .fa-magnifying-glass::before {
+        font-size: 24px;
+      }
+      #wrap_nav {
+        width: 65%;
+        margin: auto;
+      }
+      #head_left_menu {
+        width: 280px;
+        height: 44px;
+        background-color: #0069ff;
+        border-radius: 5px;
+        line-height: 42px;
+      }
+      #burger_menu_title_wrapper {
+        margin-top: 2px;
+        margin-left: 30px;
+      }
+      .fa-bars {
+        font-size: 18px;
+        color: white;
+      }
+      #title {
+        font-size: 16px;
+        color: white;
+        margin-left: 38px;
+      }
+      .nav-dropdown {
+        display: none;
+        padding: 0 20px 0 30px;
+        border-radius: 5px;
+        margin-top: 12px;
+        background-color: #fff;
+        position: absolute;
+        z-index: 10;
+      }
+      .nav-dropdown a {
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .nav-dropdown:hover {
+        display: block;
+      }
+
+      .item_1_submenu {
+        display: none;
+      }
+
+      #burger_menu_title_wrapper:hover ~ .nav-dropdown {
+        display: block;
+      }
+
+      .nav-dropdown a:hover {
+        color: red;
+      }
+
+      .nav-dropdown:hover ~ .item_1_submenu {
+        display: block;
+        position: absolute;
+      }
+
+      .head_middle {
+        display: flex;
+        align-items: center;
+      }
+      .head_right {
+        display: flex;
+      }
+      #wrap_nav {
+        display: flex;
+        margin-top: 22px;
+      }
+      #head_right_menu {
+        display: flex;
+        align-items: center;
+        margin-left: 134px;
+      }
+      #head_right_menu > div {
+        margin-right: 100px;
+        font-size: 18px;
+      }
+      #head_right_menu > div > a {
+        text-decoration: none;
+        color: #333;
+      }
+      #slide_window {
+        position: relative;
+        margin-top: 26px;
+      }
+
+      .slide_window_content {
+        position: absolute;
+        color: white;
+        width: 55%;
+        z-index: 10;
+        left: 50%;
+        top: 50%;
+        translate: -186px -200px;
+      }
+      .slide_window_content h1 {
+        font-size: 48px;
+      }
+      .slide_window_content h4 {
+        font-size: 22px;
+      }
+      .slide_window_content button {
+        padding: 4px;
+        padding-right: 24px;
+        padding-left: 24px;
+        background-color: #ff820a;
+        color: #ffffff;
+        border-color: #ff820a;
+        border-radius: 20px;
+        font-size: 22px;
+        text-align: center;
+      }
+      .fearture_product_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-template-areas:
+          "feature1 feature1 feature2 feature2"
+          "feature1 feature1 feature3 feature4 ";
+      }
+      .feature_1 {
+        grid-area: feature1;
+      }
+      .feature_2 {
+        grid-area: feature2;
+      }
+      .feature_3 {
+        grid-area: feature3;
+      }
+      .feature_4 {
+        grid-area: feature4;
+      }
+      #feature_product {
+        width: 68%;
+        margin: auto;
+      }
+      .feature_product_title {
+        font-size: 36px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrap_container">
+        <div class="head_left">
+          <img src="./Images/logo.png" alt="" />
+        </div>
+        <div class="head_middle">
+          <input type="text" id="search" />
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+          </button>
+        </div>
+        <div class="head_right">
+          <img id="user_image" src="./Images/user.png" alt="" />
+          <img id="cart_image" src="./Images/shopping-bag.png" alt="" />
+        </div>
+      </div>
+      <div id="wrap_nav">
+        <div id="head_left_menu">
+          <div id="burger_menu_title_wrapper">
+            <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
+            <span id="title">All Categories</span>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#">Cell Phone & Accessories</a>
+            <a href="#">Laptops & Tablets</a>
+            <a href="#">Consumer Electronics</a>
+            <a href="#">Consumer Electronics</a>
+          </div>
+        </div>
+        <div id="head_right_menu">
+          <div><a href="#">Home</a></div>
+          <div><a href="#">All collection</a></div>
+          <div><a href="#">Super Deals</a></div>
+        </div>
+      </div>
+      <div id="slide_window">
+        <img name="slide" alt="" />
+        <div class="slide_window_content">
+          <h1>$3 off coupon for New user</h1>
+          <h4>Avaliable for all items</h4>
+          <button>Get it now</button>
+        </div>
+      </div>
+
+      <div id="feature_product">
+        <h1 class="feature_product_title">Feature Products</h1>
+        <div class="fearture_product_grid">
+          <div class="feature_1">
+            <img src="./Images/feature11.jpg" alt="" />
+          </div>
+          <div class="feature_2">
+            <img src="./Images/feature2.jpg" alt="" />
+          </div>
+          <div class="feature_3">
+            <img src="./Images/feature4.jpg" alt="" />
+          </div>
+          <div class="feature_4">
+            <img src="./Images/feature3.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="phone_accessories_container"></div>
+    </div>
+    <script>
+      let i = 0;
+      let images = [];
+      let time = 2000;
+      images[0] = "./Images/-2-f8a7.jpg";
+      images[1] = "./Images/105254957714338494-195a.jpg";
+
+      function changeImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+        setTimeout("changeImage()", time);
+      }
+      window.onload = changeImage;
+    </script>
+  </body>
+</html>
