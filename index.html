@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./index.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -12,199 +15,30 @@
     />
 
     <title>Home</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        padding: 0px;
-        margin: 0px;
-      }
-      #user_image {
-        width: 40px;
-        height: 40px;
-        margin-right: 46px;
-      }
-      #cart_image {
-        width: 40px;
-        height: 40px;
-      }
-      #container {
-        margin: auto;
-      }
-
-      #wrap_container {
-        width: 65%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      #search {
-        height: 40px;
-        width: 520px;
-        border-top-left-radius: 50px;
-        border-bottom-left-radius: 50px;
-        background-color: #f0f1f4;
-        border: none;
-      }
-      .search-btn {
-        background-color: #0069ff;
-        height: 42px;
-        width: 54px;
-        border-bottom-right-radius: 50px;
-        border-top-right-radius: 50px;
-        border: none;
-      }
-      .fa-magnifying-glass::before {
-        font-size: 24px;
-      }
-      #wrap_nav {
-        width: 65%;
-        margin: auto;
-      }
-      #head_left_menu {
-        width: 280px;
-        height: 44px;
-        background-color: #0069ff;
-        border-radius: 5px;
-        line-height: 42px;
-      }
-      #burger_menu_title_wrapper {
-        margin-top: 2px;
-        margin-left: 30px;
-      }
-      .fa-bars {
-        font-size: 18px;
-        color: white;
-      }
-      #title {
-        font-size: 16px;
-        color: white;
-        margin-left: 38px;
-      }
-      .nav-dropdown {
-        display: none;
-        padding: 0 20px 0 30px;
-        border-radius: 5px;
-        margin-top: 12px;
-        background-color: #fff;
-        position: absolute;
-        z-index: 10;
-      }
-      .nav-dropdown a {
-        text-decoration: none;
-        font-size: 18px;
-        color: black;
-        display: block;
-        border-bottom: 1px solid #f5f5f5;
-      }
-      .nav-dropdown:hover {
-        display: block;
-      }
-
-      .item_1_submenu {
-        display: none;
-      }
-
-      #burger_menu_title_wrapper:hover ~ .nav-dropdown {
-        display: block;
-      }
-
-      .nav-dropdown a:hover {
-        color: red;
-      }
-
-      .nav-dropdown:hover ~ .item_1_submenu {
-        display: block;
-        position: absolute;
-      }
-
-      .head_middle {
-        display: flex;
-        align-items: center;
-      }
-      .head_right {
-        display: flex;
-      }
-      #wrap_nav {
-        display: flex;
-        margin-top: 22px;
-      }
-      #head_right_menu {
-        display: flex;
-        align-items: center;
-        margin-left: 134px;
-      }
-      #head_right_menu > div {
-        margin-right: 100px;
-        font-size: 18px;
-      }
-      #head_right_menu > div > a {
-        text-decoration: none;
-        color: #333;
-      }
-      #slide_window {
-        position: relative;
-        margin-top: 26px;
-      }
-
-      .slide_window_content {
-        position: absolute;
-        color: white;
-        width: 55%;
-        z-index: 10;
-        left: 50%;
-        top: 50%;
-        translate: -186px -200px;
-      }
-      .slide_window_content h1 {
-        font-size: 48px;
-      }
-      .slide_window_content h4 {
-        font-size: 22px;
-      }
-      .slide_window_content button {
-        padding: 4px;
-        padding-right: 24px;
-        padding-left: 24px;
-        background-color: #ff820a;
-        color: #ffffff;
-        border-color: #ff820a;
-        border-radius: 20px;
-        font-size: 22px;
-        text-align: center;
-      }
-      .fearture_product_grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 10px 10px;
-        grid-template-areas:
-          "feature1 feature1 feature2 feature2"
-          "feature1 feature1 feature3 feature4 ";
-      }
-      .feature_1 {
-        grid-area: feature1;
-      }
-      .feature_2 {
-        grid-area: feature2;
-      }
-      .feature_3 {
-        grid-area: feature3;
-      }
-      .feature_4 {
-        grid-area: feature4;
-      }
-      #feature_product {
-        width: 68%;
-        margin: auto;
-      }
-      .feature_product_title {
-        font-size: 36px;
-      }
-    </style>
   </head>
   <body>
+    <div class="backdrop hidden" onclick="hideSignIn()">
+      <div class="signin_wrapper">
+        <h1>Sign In</h1>
+        <p>Access your account & orders history.</p>
+        <form>
+          <div>
+            <label id="email_label" for="email">Email</label>
+          </div>
+          <div>
+            <input type="email" id="email" />
+          </div>
+          <div>
+            <label id="password_label" for="password">Password</label>
+          </div>
+          <div>
+            <input type="password" id="password" />
+          </div>
+          <button id="sign_in">Sign in</button>
+        </form>
+      </div>
+    </div>
+
     <div id="container">
       <div id="wrap_container">
         <div class="head_left">
@@ -217,7 +51,13 @@
           </button>
         </div>
         <div class="head_right">
-          <img id="user_image" src="./Images/user.png" alt="" />
+          <img
+            onclick="displaysignin()"
+            id="user_image"
+            src="./Images/user.png"
+            alt=""
+          />
+
           <img id="cart_image" src="./Images/shopping-bag.png" alt="" />
         </div>
       </div>
@@ -241,8 +81,8 @@
         </div>
       </div>
       <div id="slide_window">
-        <img name="slide" alt="" />
-        <div class="slide_window_content">
+        <img id="slide_window_image" src="./Images/-2-f8a7.jpg" alt="" />
+        <div class="slide_window_content hidden">
           <h1>$3 off coupon for New user</h1>
           <h4>Avaliable for all items</h4>
           <button>Get it now</button>
@@ -266,25 +106,71 @@
           </div>
         </div>
       </div>
-      <div id="phone_accessories_container"></div>
-    </div>
-    <script>
-      let i = 0;
-      let images = [];
-      let time = 2000;
-      images[0] = "./Images/-2-f8a7.jpg";
-      images[1] = "./Images/105254957714338494-195a.jpg";
 
-      function changeImage() {
-        document.slide.src = images[i];
-        if (i < images.length - 1) {
-          i++;
-        } else {
-          i = 0;
-        }
-        setTimeout("changeImage()", time);
-      }
-      window.onload = changeImage;
-    </script>
+      <h1 class="cell_phone_heading">Phone & Accessories</h1>
+      <div id="phone_accessories_container"></div>
+      <footer>
+        <div id="newsletter_conatiner">
+          <div class="newsletter_heading">
+            <h1>Newsletter</h1>
+            <h4>Always be the first to get the latest offer.</h4>
+          </div>
+          <div id="newsletter_input">
+            <input
+              type="text"
+              id="newsletter"
+              placeholder="Enter your email address here"
+            />
+            <button id="newsletter_button">
+              <i class="fa-solid fa-arrow-right" style="color: white"></i>
+            </button>
+          </div>
+        </div>
+        <div id="footer_bottom_container">
+          <div class="information">
+            <div>Company Information</div>
+            <div>About Us</div>
+            <div>Privarcy Policy</div>
+            <div>Terms and condition</div>
+            <div>Contact us</div>
+            <div>cookies policy</div>
+          </div>
+          <div class="services">
+            <div>Customer Services</div>
+            <div>Shipping Information</div>
+            <div>FAQ For Newsletter Subscription</div>
+            <div>warranty Returns</div>
+            <div>FAQ Support</div>
+          </div>
+          <div class="contact_us">
+            <div>Contact Us</div>
+            <div>support@techping.com</div>
+          </div>
+          <div class="about_us">
+            <div>About Us</div>
+            <div><img src="./Images/logo.png" alt="" /></div>
+            <div>
+              <p>
+                Gearbest will always provide high
+                <br />quality products and services via its <br />
+                international e-commerce platform <br />
+                maximize the happinessf global customers.
+              </p>
+            </div>
+            <button class="news_view">View more</button>
+          </div>
+          <div class="news">
+            <h1>Newsletter</h1>
+            <input
+              type="text"
+              id="news"
+              placeholder="Enter your email address"
+            />
+            <div><button class="news_subscribe">Subscribe</button></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
