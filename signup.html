@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <style>
+      .signup_container {
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 30px;
+        border: 1px solid #e8e8e8
+      }
+      .firts_name_last_name_container {
+        display: flex;
+      }
+      .signup_heading {
+        font-size: 40px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+      }
+      .first_name_label,
+      .last_name_label,
+      .email_label,
+      .password_label,
+      .confirm_password_label {
+        font-size: 14px;
+        color: #333;
+        padding-right: 8px;
+      }
+      .first_name_input,
+      .last_name_input {
+        margin: 8px 0;
+        padding: 11px 15px;
+        color: #333;
+        border-color: #a0a09f;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 8px;
+      }
+      .email_input,
+      .password_input,
+      .confirm_password_input {
+        margin: 8px 0;
+        padding: 11px 15px;
+        color: #333;
+        border-color: #a0a09f;
+        height: 22px;
+        border-radius: 5px;
+        width: 64%;
+      }
+      .create_account_button {
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        margin-top: 20px;
+        border-color: #333;
+        background-color: #333333;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .signin_form_container{
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+      }
+      * {
+  box-sizing: border-box;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+}
+#user_image {
+  width: 40px;
+  height: 40px;
+  margin-right: 46px;
+}
+#cart_image {
+  width: 40px;
+  height: 40px;
+}
+#container {
+  margin: auto;
+}
+
+#wrap_container {
+  width: 65%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#search {
+  height: 40px;
+  width: 520px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: #f0f1f4;
+  border: none;
+}
+.search-btn {
+  background-color: #0069ff;
+  height: 42px;
+  width: 54px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border: none;
+}
+.fa-magnifying-glass::before {
+  font-size: 24px;
+}
+#wrap_nav {
+  width: 65%;
+  margin: auto;
+}
+#head_left_menu {
+  width: 280px;
+  height: 44px;
+  background-color: #0069ff;
+  border-radius: 5px;
+  line-height: 42px;
+}
+#burger_menu_title_wrapper {
+  margin-top: 2px;
+  margin-left: 30px;
+}
+.fa-bars {
+  font-size: 18px;
+  color: white;
+}
+#title {
+  font-size: 16px;
+  color: white;
+  margin-left: 38px;
+}
+.nav-dropdown {
+  display: none;
+  padding: 0 20px 0 30px;
+  border-radius: 5px;
+  margin-top: 12px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+}
+.nav-dropdown a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  border-bottom: 1px solid #f5f5f5;
+}
+.nav-dropdown:hover {
+  display: block;
+}
+
+.item_1_submenu {
+  display: none;
+}
+
+#burger_menu_title_wrapper:hover ~ .nav-dropdown {
+  display: block;
+}
+
+.nav-dropdown a:hover {
+  color: red;
+}
+
+.nav-dropdown:hover ~ .item_1_submenu {
+  display: block;
+  position: absolute;
+}
+.head_middle {
+  display: flex;
+  align-items: center;
+}
+.head_right {
+  display: flex;
+}
+#wrap_nav {
+  display: flex;
+  margin-top: 22px;
+}
+#head_right_menu {
+  display: flex;
+  align-items: center;
+  margin-left: 134px;
+}
+#head_right_menu > div {
+  margin-right: 100px;
+  font-size: 18px;
+}
+#head_right_menu > div > a {
+  text-decoration: none;
+  color: #333;
+}
+    </style>
+  </head>
+  <body>
+    <div id="wrap_container">
+      <div class="head_left">
+        <img src="./Images/logo.png" alt="" />
+      </div>
+      <div class="head_middle">
+        <input type="text" id="search" />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+        </button>
+      </div>
+      <div class="head_right">
+        <img
+          onclick="displaysignin()"
+          id="user_image"
+          src="./Images/user.png"
+          alt=""
+        />
+        <img id="cart_image" src="./Images/shopping-bag.png" alt="" />
+      </div>
+    </div>
+    <div id="wrap_nav">
+      <div id="head_left_menu">
+        <div id="burger_menu_title_wrapper">
+          <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
+          <span id="title">All Categories</span>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Cell Phone & Accessories</a>
+          <a href="#">Laptops & Tablets</a>
+          <a href="#">Consumer Electronics</a>
+          <a href="#">Consumer Electronics</a>
+        </div>
+      </div>
+      <div id="head_right_menu">
+        <div><a href="#">Home</a></div>
+        <div><a href="#">All collection</a></div>
+        <div><a href="#">Super Deals</a></div>
+      </div>
+    </div>
+    <div class="signup_container">
+      <h1 class="signup_heading">Create Account</h1>
+     <div class="signin_form_container"> <form>
+      <div class="firts_name_last_name_container">
+        <div>
+          <div>
+            <label for="first_name" class="first_name_label"
+              >First Name</label
+            >
+          </div>
+          <div>
+            <input type="text" class="first_name_input" />
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label for="last_name" class="last_name_label">Last Name</label>
+          </div>
+          <div>
+            <input type="text" class="last_name_input" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label for="email" class="email_label">Email</label>
+        </div>
+        <div>
+          <input type="eamil" class="email_input" />
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="password" class="password_label">Password</label>
+        </div>
+        <div>
+          <input type="password" class="password_input" />
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="confirm_password" class="confirm_password_label"
+            >Confirm Password</label
+          >
+        </div>
+        <div>
+          <input type="password" class="confirm_password_input" />
+        </div>
+      </div>
+      <p>By clicking "Create my Account" I agree that:</p>
+      <ul>
+        <li>
+          I may receive communication emails from GearBest about order and
+          delivery.
+        </li>
+        <li>
+          I may receive new products and promotion emails from GearBest.
+        </li>
+      </ul></div>
+        <div class="create_account_button_container">
+          <button class="create_account_button">Create my Account</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      let form = document.querySelector("form");
+      let first_name = document.getElementById("first_name");
+      let last_name = document.getElementById("last_name");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let confirm_password = document.getElementById("confirm_password");
+      let create_button = document.getElementById("create_account");
+
+      let signupData = JSON.parse(localStorage.getItem("signUp"));
+      if (signupData === null) {
+        signupData = [];
+      }
+
+      create_button.addEventListener("click", () => {
+        // e.preventDefault();
+
+        let obj = {
+          firstname: first_name.value,
+          lastname: last_name,
+          email: email.value,
+          password: password.value,
+          confirm_password: confirm_password.value,
+        };
+        if (obj.password === obj.confirm_password) {
+          signupData.push(obj);
+          localStorage.setItem("signUp", JSON.stringify(signupData));
+        } else {
+          alert("Password do not match please try again");
+        }
+      });
+    </script>
+  </body>
+</html>
