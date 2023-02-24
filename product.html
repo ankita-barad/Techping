@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Products</title>
+    <style>
+      .products_container {
+        width: 100%;
+        max-width: 1250px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 20px;
+      }
+      .products_container img {
+        width: 100%;
+        max-width: 250px;
+        max-height: 250px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      #user_image {
+        width: 40px;
+        height: 40px;
+        margin-right: 46px;
+      }
+      #cart_image {
+        width: 40px;
+        height: 40px;
+      }
+      #container {
+        margin: auto;
+      }
+
+      #wrap_container {
+        width: 65%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #search {
+        height: 40px;
+        width: 520px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: #f0f1f4;
+        border: none;
+      }
+      .search-btn {
+        background-color: #0069ff;
+        height: 42px;
+        width: 54px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border: none;
+      }
+      .fa-magnifying-glass::before {
+        font-size: 24px;
+      }
+      #wrap_nav {
+        width: 65%;
+        margin: auto;
+      }
+      #head_left_menu {
+        width: 280px;
+        height: 44px;
+        background-color: #0069ff;
+        border-radius: 5px;
+        line-height: 42px;
+      }
+      #burger_menu_title_wrapper {
+        margin-top: 2px;
+        margin-left: 30px;
+      }
+      .fa-bars {
+        font-size: 18px;
+        color: white;
+      }
+      #title {
+        font-size: 16px;
+        color: white;
+        margin-left: 38px;
+      }
+      .nav-dropdown {
+        display: none;
+        padding: 0 20px 0 30px;
+        border-radius: 5px;
+        margin-top: 12px;
+        background-color: #fff;
+        position: absolute;
+        z-index: 10;
+      }
+      .nav-dropdown a {
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .nav-dropdown:hover {
+        display: block;
+      }
+
+      .item_1_submenu {
+        display: none;
+      }
+
+      #burger_menu_title_wrapper:hover ~ .nav-dropdown {
+        display: block;
+      }
+
+      .nav-dropdown a:hover {
+        color: red;
+      }
+
+      .nav-dropdown:hover ~ .item_1_submenu {
+        display: block;
+        position: absolute;
+      }
+
+      .head_middle {
+        display: flex;
+        align-items: center;
+      }
+      .head_right {
+        display: flex;
+      }
+      #wrap_nav {
+        display: flex;
+        margin-top: 22px;
+      }
+      #head_right_menu {
+        display: flex;
+        align-items: center;
+        margin-left: 134px;
+      }
+      #head_right_menu > div {
+        margin-right: 100px;
+        font-size: 18px;
+      }
+      #head_right_menu > div > a {
+        text-decoration: none;
+        color: #333;
+      }
+      /* .cell_phone_product_heading {
+        margin-left: 350px;
+      } */
+      .cell_phone_and_sort_container {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap_container">
+      <div class="head_left">
+        <img src="./Images/logo.png" alt="" />
+      </div>
+      <div class="head_middle">
+        <input type="text" id="search" />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+        </button>
+      </div>
+      <div class="head_right">
+        <img
+          onclick="displaysignin()"
+          id="user_image"
+          src="./Images/user.png"
+          alt=""
+        />
+
+        <img id="cart_image" src="./Images/shopping-bag.png" alt="" />
+      </div>
+    </div>
+    <div id="wrap_nav">
+      <div id="head_left_menu">
+        <div id="burger_menu_title_wrapper">
+          <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
+          <span id="title">All Categories</span>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Cell Phone & Accessories</a>
+          <a href="#">Laptops & Tablets</a>
+          <a href="#">Consumer Electronics</a>
+          <a href="#">Consumer Electronics</a>
+        </div>
+      </div>
+      <div id="head_right_menu">
+        <div><a href="#">Home</a></div>
+        <div><a href="#">All collection</a></div>
+        <div><a href="#">Super Deals</a></div>
+      </div>
+    </div>
+    <div class="cell_phone_and_sort_container">
+      <h1 class="cell_phone_product_heading">Cell phones</h1>
+      <select id="sort">
+        <option value="">Sort All</option>
+        <option value="low">price(low to high)</option>
+        <option value="high">price(high to low)</option>
+      </select>
+    </div>
+    <div class="products_container"></div>
+  </body>
+  <script>
+    let container = document.querySelector(".products_container");
+    let search_button = document.querySelector(".search-btn");
+    let search_input = document.getElementById("search");
+    let products = [];
+    let url = `https://63f636779daf59d1ad846b13.mockapi.io/products/products/`;
+    getData(url);
+
+    async function getData(api) {
+      let res = await fetch(api);
+      let data = await res.json();
+      products = data;
+
+      showData(products);
+    }
+
+    function showData(data) {
+      container.innerHTML = "";
+      data.forEach((ele) => {
+        let card = document.createElement("div");
+        card.setAttribute("id", "cellphone_card");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", ele.image);
+
+        let name = document.createElement("h4");
+        name.textContent = ele.name;
+
+        let price = document.createElement("p");
+        price.textContent = ele.price;
+
+        card.append(image, name, price);
+        container.append(card);
+      });
+    }
+
+    search_button.addEventListener("click", () => {
+      let search_value = search_input.value;
+      let filterData = products.filter((ele) => {
+        if (ele.name.toUpperCase().includes(search_value.toUpperCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      console.log(filterData);
+      showData(filterData);
+    });
+
+    let sortele = document.getElementById("sort");
+    sortele = addEventListener("change", (e) => {
+      let sortBy = e.target.value;
+      //   console.log(sortBy);
+      if (sortBy === "") {
+        showData(products);
+      } else if (sortBy === "low") {
+        let soreted = products.sort((a, b) => {
+          return a.price - b.price;
+        });
+        console.log(soreted);
+      }
+    });
+  </script>
+</html>
