@@ -17,9 +17,12 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="backdrop hidden" onclick="hideSignIn()">
+    <div class="backdrop hidden">
       <div class="signin_wrapper">
-        <h1>Sign In</h1>
+        <div class="signIn_close_button_container">
+          <h1>Sign In</h1>
+          <button onclick="hideSignIn()">X</button>
+        </div>
         <p>Access your account & orders history.</p>
         <form>
           <div>
@@ -34,143 +37,158 @@
           <div>
             <input type="password" id="password" />
           </div>
-          <button id="sign_in">Sign in</button>
+          <div>
+            <button id="sign_in">Sign in</button>
+            <span class="new_customer"
+              >New Customer
+              <a id="new_customer_link" href="./signup.html"
+                >start here</a
+              ></span
+            >
+          </div>
         </form>
       </div>
     </div>
-
-    <div id="container">
-      <div id="wrap_container">
-        <div class="head_left">
-          <img src="./Images/logo.png" alt="" />
-        </div>
-        <div class="head_middle">
-          <input type="text" id="search" />
-          <button class="search-btn">
-            <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
-          </button>
-        </div>
-        <div class="head_right">
-          <img
-            onclick="displaysignin()"
-            id="user_image"
-            src="./Images/user.png"
-            alt=""
-          />
-
-          <img id="cart_image" src="./Images/shopping-bag.png" alt="" />
-        </div>
-      </div>
-      <div id="wrap_nav">
-        <div id="head_left_menu">
-          <div id="burger_menu_title_wrapper">
-            <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
-            <span id="title">All Categories</span>
+    <nav class="navbar_container">
+      <div id="navbar">
+        <div class="navbar-row-1">
+          <div class="head_left">
+            <img src="./Images/logo.png" alt="" />
           </div>
-          <div class="nav-dropdown">
-            <a href="#">Cell Phone & Accessories</a>
-            <a href="#">Laptops & Tablets</a>
-            <a href="#">Consumer Electronics</a>
-            <a href="#">Consumer Electronics</a>
-          </div>
-        </div>
-        <div id="head_right_menu">
-          <div><a href="#">Home</a></div>
-          <div><a href="#">All collection</a></div>
-          <div><a href="#">Super Deals</a></div>
-        </div>
-      </div>
-      <div id="slide_window">
-        <img id="slide_window_image" src="./Images/-2-f8a7.jpg" alt="" />
-        <div class="slide_window_content hidden">
-          <h1>$3 off coupon for New user</h1>
-          <h4>Avaliable for all items</h4>
-          <button>Get it now</button>
-        </div>
-      </div>
-
-      <div id="feature_product">
-        <h1 class="feature_product_title">Feature Products</h1>
-        <div class="fearture_product_grid">
-          <div class="feature_1">
-            <img src="./Images/feature11.jpg" alt="" />
-          </div>
-          <div class="feature_2">
-            <img src="./Images/feature2.jpg" alt="" />
-          </div>
-          <div class="feature_3">
-            <img src="./Images/feature4.jpg" alt="" />
-          </div>
-          <div class="feature_4">
-            <img src="./Images/feature3.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-
-      <h1 class="cell_phone_heading">Phone & Accessories</h1>
-      <div id="phone_accessories_container"></div>
-      <footer>
-        <div id="newsletter_conatiner">
-          <div class="newsletter_heading">
-            <h1>Newsletter</h1>
-            <h4>Always be the first to get the latest offer.</h4>
-          </div>
-          <div id="newsletter_input">
-            <input
-              type="text"
-              id="newsletter"
-              placeholder="Enter your email address here"
-            />
-            <button id="newsletter_button">
-              <i class="fa-solid fa-arrow-right" style="color: white"></i>
+          <div class="head_middle">
+            <input type="text" class="head_middle-input" />
+            <button class="head_middle-btn">
+              <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
             </button>
           </div>
-        </div>
-        <div id="footer_bottom_container">
-          <div class="information">
-            <div>Company Information</div>
-            <div>About Us</div>
-            <div>Privarcy Policy</div>
-            <div>Terms and condition</div>
-            <div>Contact us</div>
-            <div>cookies policy</div>
-          </div>
-          <div class="services">
-            <div>Customer Services</div>
-            <div>Shipping Information</div>
-            <div>FAQ For Newsletter Subscription</div>
-            <div>warranty Returns</div>
-            <div>FAQ Support</div>
-          </div>
-          <div class="contact_us">
-            <div>Contact Us</div>
-            <div>support@techping.com</div>
-          </div>
-          <div class="about_us">
-            <div>About Us</div>
-            <div><img src="./Images/logo.png" alt="" /></div>
-            <div>
-              <p>
-                Gearbest will always provide high
-                <br />quality products and services via its <br />
-                international e-commerce platform <br />
-                maximize the happinessf global customers.
-              </p>
-            </div>
-            <button class="news_view">View more</button>
-          </div>
-          <div class="news">
-            <h1>Newsletter</h1>
-            <input
-              type="text"
-              id="news"
-              placeholder="Enter your email address"
+          <div class="head_right">
+            <img
+              onclick="displaysignin()"
+              class="head_right-image"
+              src="./Images/user.png"
+              alt=""
             />
-            <div><button class="news_subscribe">Subscribe</button></div>
+
+            <img
+              class="head_right-image" id="head_right-image_cart"
+              src="./Images/shopping-bag.png"
+              alt=""
+            />
           </div>
         </div>
-      </footer>
+
+        <div class="navbar-row-2">
+          <div class="wrap_nav-menu-items">
+            <div id="burger_menu_title_wrapper">
+              <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
+              <span class="burger_menu-title">All Categories</span>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#">Cell Phone & Accessories</a>
+              <a href="#">Laptops & Tablets</a>
+              <a href="#">Consumer Electronics</a>
+              <a href="#">Consumer Electronics</a>
+            </div>
+            <div class="wrap_nav-item"><a href="#">Home</a></div>
+            <div class="wrap_nav-item" id="wrap_nav-item_collections"><a href="#">All collection</a></div>
+            <div class="wrap_nav-item"><a href="#">Super Deals</a></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="slide_window">
+      <img id="slide_window_image" src="./Images/-2-f8a7.jpg" alt="" />
+      <div class="slide_window_content hidden">
+        <h1>$3 off coupon for New user</h1>
+        <h4>Avaliable for all items</h4>
+        <button>Get it now</button>
+      </div>
     </div>
+
+    <div id="feature_product">
+      <h1 class="feature_product_title">Feature Products</h1>
+      <div class="fearture_product_grid">
+        <div class="feature_1">
+          <img src="./Images/feature11.jpg" alt="" />
+        </div>
+        <div class="feature_2">
+          <img src="./Images/feature2.jpg" alt="" />
+        </div>
+        <div class="feature_3">
+          <img src="./Images/feature4.jpg" alt="" />
+        </div>
+        <div class="feature_4">
+          <img src="./Images/feature3.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cellphone_container">
+      <h1 class="cellphone_heading">Phone & Accessories</h1>
+      <div class="cellphone_items"></div>
+    </div>
+    <div id="newsletter_conatiner">
+      <div class="newsletter_heading">
+        <div>
+          <h1>Newsletter</h1>
+        </div>
+        <div>
+          <h4>Always be the first to get the latest offer.</h4>
+        </div>
+      </div>
+      <div id="newsletter_input">
+        <input
+          type="text"
+          id="newsletter"
+          placeholder="Enter your email address here"
+        />
+        <button id="newsletter_button">
+          <i class="fa-solid fa-arrow-right" style="color: white"></i>
+        </button>
+      </div>
+    </div>
+
+    <footer id="footer_bottom_container">
+      <div class="information">
+        <div>Company Information</div>
+        <div>About Us</div>
+        <div>Privarcy Policy</div>
+        <div>Terms and condition</div>
+        <div>Contact us</div>
+        <div>cookies policy</div>
+      </div>
+      <div class="services">
+        <div>Customer Services</div>
+        <div>Shipping Information</div>
+        <div>FAQ For Newsletter Subscription</div>
+        <div>warranty Returns</div>
+        <div>FAQ Support</div>
+      </div>
+      <div class="contact_us">
+        <div>Contact Us</div>
+        <div>support@techping.com</div>
+      </div>
+      <div class="about_us">
+        <div>About Us</div>
+        <div><img src="./Images/logo.png" alt="" /></div>
+        <div>
+          <p>
+            Gearbest will always provide high
+            <br />quality products and services via its <br />
+            international e-commerce platform <br />
+            maximize the happinessf global customers.
+          </p>
+        </div>
+        <button class="news_view">View more</button>
+      </div>
+      <div class="news">
+        <h1>Newsletter</h1>
+        <input type="text" id="news" placeholder="Enter your email address" />
+        <div><button class="news_subscribe">Subscribe</button></div>
+      </div>
+    </footer>
+
     <script src="./index.js"></script>
   </body>
 </html>
