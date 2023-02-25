@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Products</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      .products_container {
+        width: 100%;
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 20px;
+      }
+      .products_container img {
+        width: 100%;
+        max-width: 310px;
+        max-height: 310px;
+      }
+      .navbar_container {
+        position: sticky;
+        top: 0px;
+        z-index: 200;
+        background-color: white;
+        padding-bottom: 10px;
+      }
+
+      #navbar {
+        width: 65%;
+        margin: auto;
+      }
+
+      .navbar-row-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar-row-2 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .head_middle {
+        display: flex;
+        flex: 1;
+        align-items: center;
+      }
+
+      .head_middle-input {
+        height: 40px;
+        width: 100%;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: #f0f1f4;
+        border: none;
+        outline: none;
+        padding: 0 12px;
+      }
+      .head_middle-btn {
+        background-color: #0069ff;
+        height: 42px;
+        width: 54px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border: none;
+      }
+
+      .head_right {
+        margin-left: 24px;
+        display: flex;
+      }
+
+      .head_right-image {
+        width: 32px;
+      }
+
+      .fa-magnifying-glass::before {
+        font-size: 24px;
+      }
+
+      .wrap_nav-menu-items {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .wrap_nav-item {
+        margin-left: 32px;
+      }
+
+      .wrap_nav-item a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+      }
+
+      #burger_menu_title_wrapper {
+        border-radius: 5px;
+        padding: 8px 16px;
+        background-color: #0069ff;
+      }
+      .fa-bars {
+        font-size: 18px;
+        color: white;
+      }
+      .burger_menu-title {
+        font-size: 16px;
+        color: white;
+        margin-left: 8px;
+      }
+      .nav-dropdown {
+        display: none;
+        padding: 0 20px 0 30px;
+        border-radius: 5px;
+        background-color: #fff;
+        position: absolute;
+        top: 114px;
+        z-index: 10;
+      }
+      .nav-dropdown a {
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block;
+        border-bottom: 1px solid #f5f5f5;
+        padding: 8px 0;
+      }
+      .nav-dropdown:hover {
+        display: block;
+      }
+
+      .item_1_submenu {
+        display: none;
+      }
+
+      #burger_menu_title_wrapper:hover ~ .nav-dropdown {
+        display: block;
+      }
+
+      .nav-dropdown:hover {
+        display: block;
+      }
+
+      .nav-dropdown a:hover {
+        color: red;
+      }
+
+      .nav-dropdown:hover ~ .item_1_submenu {
+        display: block;
+        position: absolute;
+      }
+
+      #slide_window {
+        position: relative;
+        max-width: 100%;
+        margin-top: 26px;
+      }
+
+      .cell_phone_and_sort_container {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 10px;
+      }
+      #sort {
+        border: none;
+      }
+      #newsletter_conatiner {
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .newsletter_heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .newsletter_heading h1 {
+        font-size: 40px;
+        font-weight: 550;
+      }
+      .newsletter_heading h4 {
+        font-size: 16px;
+        margin-left: 36px;
+      }
+      #newsletter_input {
+        display: flex;
+        align-items: center;
+      }
+      #newsletter {
+        height: 40px;
+        width: 520px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: #f0f1f4;
+        border: none;
+      }
+      #newsletter_button {
+        background-color: #0069ff;
+        height: 42px;
+        width: 54px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border: none;
+      }
+      .fa-arrow-right {
+        font-size: 22px;
+      }
+      #newsletter::placeholder {
+        text-align: center;
+      }
+      #footer_bottom_container {
+        display: flex;
+        justify-content: space-evenly;
+        color: #fff;
+        background-color: #6c6f72;
+        height: 340px;
+      }
+      #footer_bottom_container > div {
+        margin-right: 10px;
+        padding-top: 30px;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .signin_container {
+        display: none;
+      }
+      .information > div {
+        padding-top: 10px;
+      }
+      .services > div {
+        padding-top: 10px;
+      }
+      .contact_us > div {
+        padding-top: 10px;
+      }
+      .about_us > div {
+        padding-top: 10px;
+      }
+      .news > div {
+        padding-top: 10px;
+      }
+      .information > div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .services > div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .contact_us > div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .about_us > div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .news > div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .news_view {
+        padding: 10px;
+        background-color: #0069ff;
+        border: none;
+      }
+      .news_subscribe {
+        padding: 10px;
+        background-color: #0069ff;
+        border: none;
+      }
+      .card h4 {
+        text-align: center;
+      }
+      .card p {
+        text-align: center;
+      }
+      .card button {
+        width: 40%;
+        margin-left: 94px;
+        border-radius: 4px;
+        background-color: #6c6f72;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar_container">
+      <div id="navbar">
+        <div class="navbar-row-1">
+          <div class="head_left">
+            <img src="./Images/logo.png" alt="" />
+          </div>
+          <div class="head_middle">
+            <input type="text" class="head_middle-input" />
+            <button class="head_middle-btn">
+              <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+            </button>
+          </div>
+          <div class="head_right">
+            <img
+              onclick="displaysignin()"
+              class="head_right-image"
+              src="./Images/user.png"
+              alt=""
+            />
+
+            <img
+              class="head_right-image"
+              id="head_right-image_cart"
+              src="./Images/shopping-bag.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="navbar-row-2">
+          <div class="wrap_nav-menu-items">
+            <div id="burger_menu_title_wrapper">
+              <span id="burger_meun"><i class="fa-solid fa-bars"></i></span>
+              <span class="burger_menu-title">All Categories</span>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#">Cell Phone & Accessories</a>
+              <a href="#">Laptops & Tablets</a>
+              <a href="#">Consumer Electronics</a>
+              <a href="#">Consumer Electronics</a>
+            </div>
+            <div class="wrap_nav-item" id="wrap_nav-item_home">
+              <a href="#">Home</a>
+            </div>
+            <div class="wrap_nav-item" id="wrap_nav-item_collections">
+              <a href="#">All collection</a>
+            </div>
+            <div class="wrap_nav-item"><a href="#">Super Deals</a></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="cell_phone_and_sort_container">
+      <h1 class="cell_phone_product_heading">Cell phones</h1>
+      <select id="sort">
+        <option value="">Sort All</option>
+        <option value="low">price(low to high)</option>
+        <option value="high">price(high to low)</option>
+      </select>
+    </div>
+    <div class="products_container"></div>
+    <footer>
+      <div id="newsletter_conatiner">
+        <div class="newsletter_heading">
+          <h1>Newsletter</h1>
+          <h4>Always be the first to get the latest offer.</h4>
+        </div>
+        <div id="newsletter_input">
+          <input
+            type="text"
+            id="newsletter"
+            placeholder="Enter your email address here"
+          />
+          <button id="newsletter_button">
+            <i class="fa-solid fa-arrow-right" style="color: white"></i>
+          </button>
+        </div>
+      </div>
+      <div id="footer_bottom_container">
+        <div class="information">
+          <div>Company Information</div>
+          <div>About Us</div>
+          <div>Privarcy Policy</div>
+          <div>Terms and condition</div>
+          <div>Contact us</div>
+          <div>cookies policy</div>
+        </div>
+        <div class="services">
+          <div>Customer Services</div>
+          <div>Shipping Information</div>
+          <div>FAQ For Newsletter Subscription</div>
+          <div>warranty Returns</div>
+          <div>FAQ Support</div>
+        </div>
+        <div class="contact_us">
+          <div>Contact Us</div>
+          <div>support@techping.com</div>
+        </div>
+        <div class="about_us">
+          <div>About Us</div>
+          <div><img src="./Images/logo.png" alt="" /></div>
+          <div>
+            <p>
+              Gearbest will always provide high
+              <br />quality products and services via its <br />
+              international e-commerce platform <br />
+              maximize the happinessf global customers.
+            </p>
+          </div>
+          <button class="news_view">View more</button>
+        </div>
+        <div class="news">
+          <h1>Newsletter</h1>
+          <input type="text" id="news" placeholder="Enter your email address" />
+          <div><button class="news_subscribe">Subscribe</button></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    let home = document.getElementById("wrap_nav-item_home");
+
+    home.addEventListener("click", () => {
+      window.location = "/index.html";
+    });
+
+    let cart_image = document.getElementById("head_right-image_cart");
+    cart_image.addEventListener("click", () => {
+      window.location = "/cart.html";
+    });
+    let container = document.querySelector(".products_container");
+    let search_button = document.querySelector(".head_middle-btn");
+    let search_input = document.querySelector(".head_middle-input");
+    let products = [];
+    let url = `https://63f636779daf59d1ad846b13.mockapi.io/products/products/`;
+    getData(url);
+
+    let Cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    async function getData(api) {
+      let res = await fetch(api);
+      let data = await res.json();
+      products = data;
+
+      showData(products);
+    }
+
+    function showData(data) {
+      container.innerHTML = "";
+      data.forEach((ele, i) => {
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
+        card.setAttribute("id", "cellphone_card");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", ele.image);
+
+        let name = document.createElement("h4");
+        name.textContent = ele.name;
+
+        let price = document.createElement("p");
+        price.textContent = ele.price;
+
+        let add_to_cart = document.createElement("button");
+        add_to_cart.textContent = "Add to Cart";
+
+        add_to_cart.addEventListener("click", () => {
+          if (checkDuplicate(ele)) {
+            alert("productAlready in cart");
+          } else {
+            Cart.push({ ...ele, quantity: 1 });
+            localStorage.setItem("cart", JSON.stringify(Cart));
+            alert("Product Added To Cart");
+          }
+        });
+
+        card.append(image, name, price, add_to_cart);
+        container.append(card);
+      });
+    }
+
+    search_button.addEventListener("click", () => {
+      let search_value = search_input.value;
+      let filterData = products.filter((ele) => {
+        if (ele.name.toUpperCase().includes(search_value.toUpperCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      console.log(filterData);
+      showData(filterData);
+    });
+
+    let sortele = document.getElementById("sort");
+    sortele = addEventListener("change", (e) => {
+      let sortBy = e.target.value;
+      //   console.log(sortBy);
+      if (sortBy === "") {
+        showData(products);
+      } else if (sortBy === "low") {
+        let soreted = products.sort((a, b) => {
+          return a.price - b.price;
+        });
+        showData(soreted);
+      } else if (sortBy === "high") {
+        let soreted = products.sort((a, b) => {
+          return b.price - a.price;
+        });
+        showData(soreted);
+      }
+    });
+
+    function checkDuplicate(ele) {
+      for (let i = 0; i < Cart.length; i++) {
+        if (Cart[i].id == ele.id) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+</html>

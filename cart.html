@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cart</title>
+    <style>
+      .cart-title {
+        text-align: center;
+      }
+      .cart_conatiner {
+        width: 65%;
+        margin: auto;
+        display: grid;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        grid-template-columns: 1fr;
+      }
+      .cart_conatiner img {
+        width: 100%;
+        max-width: 250px;
+        max-height: 250px;
+      }
+      .cart_total {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="cart-title">your Shopping cart</h1>
+
+    <div class="cart_conatiner"></div>
+    <div class="cart_total">
+      <h1 id="total">Total: <span id="cart-total">0</span></h1>
+      <button class="checkout_btn">Checkout</button>
+    </div>
+  </body>
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let conatiner = document.querySelector(".cart_conatiner");
+    let checkout_btn = document.querySelector(".checkout_btn");
+    checkout_btn.addEventListener("click", () => {
+      window.location = "/index.html";
+    });
+
+    function displayData() {
+      conatiner.innerHTML = "";
+      cart.forEach((ele) => {
+        let card = document.createElement("div");
+        card.style = "display:flex";
+        let sub_card = document.createElement("div");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", ele.image);
+
+        let name = document.createElement("h3");
+        name.textContent = ele.name;
+
+        let price = document.createElement("h4");
+        price.textContent = ele.price;
+
+        let quantity = document.createElement("span");
+        quantity.textContent = ele.quantity;
+
+        let increament = document.createElement("button");
+        increament.textContent = "+";
+
+        let decreament = document.createElement("button");
+        decreament.textContent = "-";
+
+        let remove = document.createElement("button");
+        remove.textContent = "Remove";
+
+        remove.addEventListener("click", () => {
+          cart = card.filter((item) => {
+            return ele.id !== item.id;
+          });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayData();
+        });
+
+        increament.addEventListener("click", () => {
+          ele = ele.quantity++;
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayData();
+        });
+
+        decreament.addEventListener("click", () => {
+          if (ele.quantity > 1) {
+            ele = ele.quantity--;
+            localStorage.setItem("cart".JSON.stringify(cart));
+            displayData();
+          }
+        });
+
+        let sum = 0;
+        for (let i = 0; i < cart.length; i++) {
+          sum += cart[i].price * cart[i].quantity;
+        }
+
+        document.getElementById("cart-total").textContent = sum;
+
+        sub_card.append(name, price, increament, quantity, decreament, remove);
+
+        card.append(
+          image,
+          sub_card
+          // name,
+          // price,
+          // increament,
+          // quantity,
+          // decreament,
+          // remove
+        );
+
+        conatiner.append(card);
+      });
+    }
+    displayData();
+  </script>
+</html>

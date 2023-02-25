@@ -26,6 +26,17 @@ signin_button.addEventListener("click", () => {
   }
 });
 
+let cart_image = document.getElementById("head_right-image_cart");
+cart_image.addEventListener("click", () => {
+  window.location = "/cart.html";
+});
+
+let all_collection = document.getElementById("wrap_nav-item_collections");
+
+all_collection.addEventListener("click", () => {
+  window.location = "/product.html";
+});
+
 let i = 0;
 let images = [];
 let time = 2000;
@@ -60,7 +71,7 @@ function hideSignIn() {
   signin_backdrop.classList.add("hidden");
 }
 
-let container = document.getElementById("phone_accessories_container");
+let container = document.querySelector(".cellphone_items");
 let url = `https://63f636779daf59d1ad846b13.mockapi.io/products/products/`;
 getData(url);
 
@@ -90,3 +101,7 @@ function showData(data) {
     container.append(card);
   });
 }
+let sign_in_close_button = document.querySelector(
+  ".signIn_close_button_container button"
+);
+sign_in_close_button.addEventListener("click", () => {});
