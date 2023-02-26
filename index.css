@@ -227,7 +227,6 @@ body {
 
 .cellphone_items {
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr;
   background-color: #f5f5f5;
   gap: 10px 10px;
@@ -441,6 +440,9 @@ body {
   .newsletter_heading {
     flex-direction: column;
   }
+  .cellphone_items {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and down) */
@@ -470,6 +472,9 @@ body {
   .cellphone_container {
     width: 100%;
     margin: 8px;
+  }
+  .cellphone_items {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -501,6 +506,9 @@ body {
     width: 100%;
     margin: 8px;
   }
+  .cellphone_items {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Large devices (laptops/desktops, 1024px and down) */
@@ -531,7 +539,3 @@ body {
     margin: 8px;
   }
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1025px) {
-} */

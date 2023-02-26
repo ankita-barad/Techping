@@ -24,6 +24,9 @@
       .cart_total {
         text-align: center;
       }
+      .cart_conatiner button {
+        margin: 8px;
+      }
     </style>
   </head>
   <body>
@@ -72,7 +75,7 @@
         remove.textContent = "Remove";
 
         remove.addEventListener("click", () => {
-          cart = card.filter((item) => {
+          cart = cart.filter((item) => {
             return ele.id !== item.id;
           });
           localStorage.setItem("cart", JSON.stringify(cart));
@@ -88,7 +91,7 @@
         decreament.addEventListener("click", () => {
           if (ele.quantity > 1) {
             ele = ele.quantity--;
-            localStorage.setItem("cart".JSON.stringify(cart));
+            localStorage.setItem("cart", JSON.stringify(cart));
             displayData();
           }
         });
