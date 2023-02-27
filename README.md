@@ -18,5 +18,9 @@ SignUp Page
 Product page
 ![image](https://user-images.githubusercontent.com/121330309/221497104-886a4cf9-cc22-443b-88a8-818553f1ced7.png)
 
+cart Page
+![image](https://user-images.githubusercontent.com/121330309/221497274-03a08f5b-90eb-462d-8ef7-ff12966e3e9b.png)
+
+
 
 
