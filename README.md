@@ -1,7 +1,8 @@
 # late-riddle-1569
 Website Name-Techping
 
-
+deployed Link
+https://beamish-chaja-b39148.netlify.app/
 
 Its an e-commerce to buy a tech releated equipments
 
